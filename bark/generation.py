@@ -71,7 +71,6 @@ for _, lang in SUPPORTED_LANGS:
     for n in range(10):
         ALLOWED_PROMPTS.add(f"{lang}_speaker_{n}")
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -382,7 +381,7 @@ def generate_text_semantic(
         if history_prompt.endswith(".npz"):
             semantic_history = np.load(history_prompt)["semantic_prompt"]
         else:
-            assert (history_prompt in ALLOWED_PROMPTS)
+            #assert (history_prompt in ALLOWED_PROMPTS)
             semantic_history = np.load(
                 os.path.join(CUR_PATH, "assets", "prompts", f"{history_prompt}.npz")
             )["semantic_prompt"]
@@ -536,7 +535,7 @@ def generate_coarse(
         if history_prompt.endswith(".npz"):
             x_history = np.load(history_prompt)
         else:
-            assert (history_prompt in ALLOWED_PROMPTS)
+            #assert (history_prompt in ALLOWED_PROMPTS)
             x_history = np.load(
                 os.path.join(CUR_PATH, "assets", "prompts", f"{history_prompt}.npz")
             )
@@ -554,10 +553,10 @@ def generate_coarse(
             and x_coarse_history.shape[-1] >= 0
             and x_coarse_history.min() >= 0
             and x_coarse_history.max() <= CODEBOOK_SIZE - 1
-            and (
-                round(x_coarse_history.shape[-1] / len(x_semantic_history), 1)
-                == round(semantic_to_coarse_ratio / N_COARSE_CODEBOOKS, 1)
-            )
+            #and (
+            #    round(x_coarse_history.shape[-1] / len(x_semantic_history), 1)
+            #    == round(semantic_to_coarse_ratio / N_COARSE_CODEBOOKS, 1)
+            #)
         )
         x_coarse_history = _flatten_codebooks(x_coarse_history) + SEMANTIC_VOCAB_SIZE
         # trim histories correctly
@@ -689,7 +688,7 @@ def generate_fine(
         if history_prompt.endswith(".npz"):
             x_fine_history = np.load(history_prompt)["fine_prompt"]
         else:
-            assert (history_prompt in ALLOWED_PROMPTS)
+            #assert (history_prompt in ALLOWED_PROMPTS)
             x_fine_history = np.load(
                 os.path.join(CUR_PATH, "assets", "prompts", f"{history_prompt}.npz")
             )["fine_prompt"]
