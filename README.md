@@ -5,7 +5,9 @@
 [![](https://dcbadge.vercel.app/api/server/J2B2vsjKuE?compact=true&style=flat&)](https://discord.gg/J2B2vsjKuE)
 
 
-Run barkapp.py for the Gradio app
+Run barkapp.py for the Gradio app. Tokens are unlimited and voice stays coherent by using a feedback loop. I'm working on a way to use personal recordings at the moment.
+
+<img width="1163" alt="Screenshot 2023-04-24 224222" src="https://user-images.githubusercontent.com/57850516/234161972-0fa1cc57-a1af-4d60-95c9-a90aa8bf7fca.png">
 
 [Examples](https://suno-ai.notion.site/Bark-Examples-5edae8b02a604b54a42244ba45ebc2e2) | [Model Card](./model-card.md) | [Playground Waitlist](https://3os84zs17th.typeform.com/suno-studio)
 
