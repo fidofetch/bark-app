@@ -24,9 +24,10 @@ def text_to_audio(text, text_temp, waveform_temp, history_prompt):
     
     # generate audio from text
     audio_arrays = np.array([])
-    i = 0
+    i = 1
     
     for prompt in text_prompts_list:
+        print(f"{i} of {len(text_prompts_list)}")
         full_generation, audio_array = generate_audio(prompt,
                                      history_prompt,
                                      text_temp,
@@ -34,8 +35,9 @@ def text_to_audio(text, text_temp, waveform_temp, history_prompt):
                                      output_full = True)
         audio_arrays = np.concatenate((audio_arrays, audio_array))
                         
-        save_as_prompt(os.path.join(cwd, f"bark/assets/userprompts/{i}.npz"), full_generation)
-        history_prompt = os.path.join(cwd, f"bark/assets/userprompts/{i}.npz")
+        save_as_prompt(os.path.join(cwd, f"bark/assets/userprompts/temp.npz"), full_generation)
+        history_prompt = os.path.join(cwd, f"bark/assets/userprompts/temp.npz")
+        i = i+1
     # return audio array as output
     return SAMPLE_RATE, audio_arrays
 
