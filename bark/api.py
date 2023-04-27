@@ -10,6 +10,7 @@ def text_to_semantic(
     history_prompt: Optional[str] = None,
     temp: float = 0.7,
     silent: bool = False,
+    allow_early_stop: bool = True,
 ):
     """Generate semantic array from text.
 
@@ -27,7 +28,8 @@ def text_to_semantic(
         history_prompt=history_prompt,
         temp=temp,
         silent=silent,
-        use_kv_caching=True
+        use_kv_caching=True,
+        allow_early_stop=allow_early_stop
     )
     return x_semantic
 
@@ -35,7 +37,8 @@ def text_to_semantic(
 def semantic_to_waveform(
     semantic_tokens: np.ndarray,
     history_prompt: Optional[str] = None,
-    temp: float = 0.7,
+    coarse_temp: float = 0.7,
+    fine_temp: float = 0.5,
     silent: bool = False,
     output_full: bool = False,
 ):
@@ -54,14 +57,14 @@ def semantic_to_waveform(
     coarse_tokens = generate_coarse(
         semantic_tokens,
         history_prompt=history_prompt,
-        temp=temp,
+        temp=coarse_temp,
         silent=silent,
         use_kv_caching=True
     )
     fine_tokens = generate_fine(
         coarse_tokens,
         history_prompt=history_prompt,
-        temp=0.5,
+        temp=fine_temp,
     )
     audio_arr = codec_decode(fine_tokens)
     if output_full:
@@ -87,9 +90,11 @@ def generate_audio(
     text: str,
     history_prompt: Optional[str] = None,
     text_temp: float = 0.7,
-    waveform_temp: float = 0.7,
+    coarse_temp: float = 0.7,
+    fine_temp: float = 0.5,
     silent: bool = False,
     output_full: bool = False,
+    allow_early_stop: bool = True,
 ):
     """Generate audio array from input text.
 
@@ -109,11 +114,13 @@ def generate_audio(
         history_prompt=history_prompt,
         temp=text_temp,
         silent=silent,
+        allow_early_stop=allow_early_stop,
     )
     out = semantic_to_waveform(
         semantic_tokens,
         history_prompt=history_prompt,
-        temp=waveform_temp,
+        coarse_temp=coarse_temp,
+        fine_temp=fine_temp,
         silent=silent,
         output_full=output_full,
     )
