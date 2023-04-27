@@ -8,19 +8,16 @@
 Run barkapp.py for the Gradio app. Tokens are unlimited and voice stays coherent by using a feedback loop. You can now run custom npz files. Create them here:
 https://huggingface.co/spaces/fffiloni/clone-voice-for-bark
 
+then download them to bark/assets/prompts, you can then select your custom file in the history_prompts drop down.
+
+<img width="1163" alt="Screenshot 2023-04-24 224222" src="https://user-images.githubusercontent.com/57850516/234161972-0fa1cc57-a1af-4d60-95c9-a90aa8bf7fca.png">
+
 
 Long prompt consistency (quoted from: https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/)
 
 
 
 https://user-images.githubusercontent.com/57850516/234818834-00ec1249-c580-44a4-b338-051ff35559d4.mp4
-
-
-
-
-then download them to bark/assets/prompts, you can then select your custom file in the history_prompts drop down.
-
-<img width="1163" alt="Screenshot 2023-04-24 224222" src="https://user-images.githubusercontent.com/57850516/234161972-0fa1cc57-a1af-4d60-95c9-a90aa8bf7fca.png">
 
 [Examples](https://suno-ai.notion.site/Bark-Examples-5edae8b02a604b54a42244ba45ebc2e2) | [Model Card](./model-card.md) | [Playground Waitlist](https://3os84zs17th.typeform.com/suno-studio)
 
