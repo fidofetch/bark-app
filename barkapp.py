@@ -117,7 +117,7 @@ inputs = [
     gr.Slider(minimum=0.01, maximum=1.0, value=0.7, label="coarse_temp", info="Lower is more consistent with the history_prompt, too low seems to copy the history_prompt"),
     gr.Slider(minimum=0.01, maximum=1.0, value=0.5, label="fine_temp", info="Lower is more consistent, seems to control intonation and pitch"),
     gr.Checkbox(label="Allow Early Stop", value = True, info="Unchecked, model will fill entire context length"),
-    gr.Slider(minimum=1, maximum=10, value=10, label="Max Chunck Size", info="The size of chunks used in prestitching, larger chunks have more consistent long outputs but use more vram"),
+    gr.Slider(minimum=1, maximum=10, value=10, step=1, label="Max Chunck Size", info="The size of chunks used in prestitching, larger chunks have more consistent long outputs but use more vram"),
     gr.Number(value=0, label="Seed", info="0 for random")
 ]
 # create an interface object
