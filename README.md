@@ -10,7 +10,12 @@ https://huggingface.co/spaces/fffiloni/clone-voice-for-bark
 
 
 Long prompt consistency (quoted from: https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/)
-https://user-images.githubusercontent.com/57850516/234816922-6476710f-cee5-45e6-9d07-7d869d60d17a.mp4
+
+
+
+https://user-images.githubusercontent.com/57850516/234818834-00ec1249-c580-44a4-b338-051ff35559d4.mp4
+
+
 
 
 then download them to bark/assets/prompts, you can then select your custom file in the history_prompts drop down.
